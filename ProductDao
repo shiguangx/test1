@@ -1,0 +1,31 @@
+package com.Jeremy.domain;
+
+import com.Jeremy.domain.Product;
+import java.sql.SQLException;
+import java.util.List;
+
+public interface ProductDao{
+	//关键词搜索
+	List<Product> findProductByword(String word) throws SQLException;
+	//热度搜索
+	List<Product> findByHot() throws SQLException；
+	//时间搜索
+	List<Product> findByNew() throws SQLException;
+	Product findById(String pid) throws SQLException;
+	//id搜索
+    int findTotalRecordByCid(String cid) throws SQLException;
+
+    List<Product> findAllByCid(String cid, int startIndex, int pageSize) throws SQLException;
+
+    int findTotalRecord() throws SQLException;
+
+    List<Product> findAll(int startIndex, int pageSize) throws SQLException;
+
+    int productDelete(String pid) throws SQLException;
+
+    int productAdd(Product product) throws SQLException;
+
+    int findTotalRecordByWord(String word) throws SQLException;
+
+    List<Product> findAllByWord(String word, int startIndex, int pageSize) throws SQLException;
+}

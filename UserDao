@@ -1,0 +1,16 @@
+package com.Jeremy.domain;
+
+import com.Jeremy.domain.User;
+import java.sql.SQLException;
+//用户数据操作
+public interface UserDao{
+	User findByUsername(String username) throws SQLException;
+	
+	int InsterUser(User user) throws SQLException;
+
+    User findByCode(String code) throws SQLException;
+
+    void update(User existUser) throws SQLException;
+
+    User findByUid(String username) throws SQLException;
+}
