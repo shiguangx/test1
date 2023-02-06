@@ -1,0 +1,42 @@
+package com.Jeremy.domain;
+
+import java.io.Serializable;
+import java.util.List;
+//分页的JavaBean（页码属性
+public class PageBean<T> implements Serializable{
+	private int pageNumber;
+	Private int pageSize;
+	private int totalRecord;
+	private int totalPage;
+	private int startIndex;
+	private List<T> data;
+	//构造方法，原理：总页数=or>总项目数/一页项目数
+	public PageBean(int pageNumber,int pageSize,int totalRecord){
+		this.pageNumber = pageNumber;
+		this.pageSize = pageSize;
+		this.totalRecord = totalRecord;
+		if(totalRecord%pageSize == 0){
+			totalPage = totalRecord / pageSize;
+		}else{
+			totalPage = totalRecord / pageSize +1;
+		}
+		this.startIndex = (this.pageNumber-1)*pageSize;
+	}
+	public int getPageNumber(){ return pageNumber;}
+	public void setPageNumber(int pageNumber){this.pageNumber = pageNumber;}
+
+	public int getPageSize(){return pageSize;}
+	public void setPageSize(int pageSize){this.pageSize = pageSize;}
+
+	public int getTotalRecord() {return totalRecord;}
+	public void setTotalRecord(int totalRecord) {this.totalRecord = totalRecord;}
+
+    public int getTotalPage() {return totalPage;}
+	public void setTotalPage(int totalPage) {this.totalPage = totalPage;}
+
+    public int getStartIndex() {return startIndex;}
+	public void setStartIndex(int startIndex) {this.startIndex = startIndex;}
+
+	public List<T> getData() {return data;}
+    public void setData(List<T> data) {this.data = data;}
+}
