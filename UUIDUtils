@@ -1,0 +1,9 @@
+package com.Jeremy.domain;
+
+import java.util.UUID;
+
+public class UUIDUtils{
+	public static String getUUId(){
+		return UUID.randomUUID().toString();
+	}
+}
